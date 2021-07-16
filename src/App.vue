@@ -15,9 +15,18 @@ export default {
   created () {
     
   },
-  // data: function() {
-
-  // },
+  data: function() {
+    return{
+      menuList: [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+      ]
+    }
+  },
 }
 </script>
 
