@@ -17,6 +17,10 @@
         <!-- icona cerca e profilo -->
         <div>
             <ul>
+                <li>
+                    <input v-model="searchString" placeholder="Search" 
+                    @keyup.enter="$emit('cerca', searchString)">
+                </li>
                 <li><i class="fas fa-search"></i></li>
                 <li>BAMBINI</li>
                 <li><i class="fas fa-bell"></i></li>
@@ -40,7 +44,11 @@
 
 export default {
   name: 'Header',
-  
+  data:function(){
+      return{
+          searchString: '',
+      }
+  }
 }
 </script>
 

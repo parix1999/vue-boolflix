@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header />
+    <Header @cerca = "searchMovie"/>
 
-    <Main :menuList="menuList"/> 
+    <Main :menuList="listaCercati"/> 
 
   </div>
 </template>
@@ -22,14 +22,31 @@ export default {
   created () {
     axios.get('https://api.themoviedb.org/3/movie/popular?api_key=6ab3e57615f14eaaf5a85958841a5555').then((response) =>{
       this.menuList = response.data.results;
+      this.listaCercati = response.data.results;
       console.log(this.menuList)
     });
   },
   data: function() {
     return{
       menuList: [],
+      listaCercati: [],
     }
   },
+  methods: {
+    searchMovie(searchString){
+      if (searchString.length == 0 ) {
+        this.listaCercati = this.menuList; 
+        return 
+      } else {
+        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=6ab3e57615f14eaaf5a85958841a5555&query=${searchString}`).then((response) =>{
+        this.listaCercati = response.data.results;
+        console.log(this.listaCercati)
+
+        });
+
+      }
+    }
+  }
 }
 </script>
 
