@@ -1,5 +1,5 @@
 <template>
-    <div class="col-4">
+    <div class="col-2">
         <div class="box-image">
             <div class="prova">
                 <div class="titolo">{{title}}</div> 
@@ -35,8 +35,11 @@ export default {
 
     .box-image{
         background-image: url('https://image.tmdb.org/t/p/w342/hQq8xZe5uLjFzSBt4LanNP7SQjl.jpg');
-        width:342px;
-        height:513px;
+        background-size:contain; 
+        background-position:top;
+        background-repeat: no-repeat;
+        width:180px;
+        height:300px;
         .prova{
             display: none;
         }

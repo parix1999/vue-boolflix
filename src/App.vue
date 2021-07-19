@@ -20,7 +20,7 @@ export default {
     Main,
   },
   created () {
-    axios.get('https://api.themoviedb.org/3/search/movie?api_key=6ab3e57615f14eaaf5a85958841a5555&query=ritorno+al+futuro').then((response) =>{
+    axios.get('https://api.themoviedb.org/3/movie/popular?api_key=6ab3e57615f14eaaf5a85958841a5555').then((response) =>{
       this.menuList = response.data.results;
       console.log(this.menuList)
     });
