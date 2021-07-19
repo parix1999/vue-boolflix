@@ -3,6 +3,7 @@
         <div class="row">
             <Film v-for="(film, index) in menuList" :key="index" 
             :poster_path="film.poster_path"
+            :name="film.name"
             :title="film.title"
             :original_title="film.original_title"
             :original_language="film.original_language"
@@ -23,6 +24,7 @@ export default {
     },
     props:{
         menuList: Array,
+        listaSerieTV: Array,
         
     }
     

@@ -4,6 +4,7 @@
     
             <div class="prova">
                 <div class="titolo">{{title}}</div> 
+                <div class="serie">{{name}}</div> 
                 <div class="original-title">{{original_title}}</div> 
                 <div class="original-language">{{original_language}}</div> 
                 <!-- Bandiere lingue -->
@@ -19,8 +20,13 @@
                 <div class="box-bandiera" v-else-if="original_language === 'fr' ">
                     <img src="../assets/fr.png" alt="francese">
                 </div>
-                 <div class="box-bandiera" v-else-if="original_language === 'pt' ">
+                <div class="box-bandiera" v-else-if="original_language === 'pt' ">
                     <img src="../assets/pr.png" alt="portoghese">
+                </div>
+                
+
+                <div v-else>
+                    <div class="warning">Nessuna bandiera per questa lingua, scusate</div>
                 </div>
 
                 
@@ -45,6 +51,9 @@ export default {
        original_language: String,
        vote_average: Number,
        poster_path: String,  
+    //Dati serie TV:
+        name: String,
+
     }
 }
 
@@ -70,11 +79,14 @@ export default {
         
     }
     .box-bandiera {
-        width:50px;
+        width:20px;
 
         img{
             width:100%;
         }
+    }
+    .warning{
+        font-size: 10px;
     }
 
 
