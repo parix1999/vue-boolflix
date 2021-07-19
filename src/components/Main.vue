@@ -1,6 +1,7 @@
 <template>
     <div class="container personalized">
         <div class="row">
+            <h3>Film Popolari</h3>
             <Film v-for="(film, index) in menuList" :key="index" 
             :poster_path="film.poster_path"
             :name="film.name"
@@ -8,23 +9,25 @@
             :original_title="film.original_title"
             :original_language="film.original_language"
             :vote_average="film.vote_average"/>
-
+            
         </div>
     </div>
 </template>
 
 
 <script>
-import Film from './Film.vue'
+import Film from './Film.vue';
+
 
 export default {
     name:'Main',
     components:{
         Film,
+        
     },
     props:{
         menuList: Array,
-        listaSerieTV: Array,
+        
         
     }
     
@@ -37,6 +40,10 @@ export default {
 
     .personalized{
         margin-top:50px;
+        h3{
+            color:white;
+            margin-bottom:24px;
+        }
     }
 
 </style>
