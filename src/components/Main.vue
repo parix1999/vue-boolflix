@@ -1,7 +1,11 @@
 <template>
-    <div class="container">
+    <div class="container personalized">
         <div class="row">
-            <Film v-for="(film, index) in menuList" :key="index" />
+            <Film v-for="(film, index) in menuList" :key="index" 
+            :title="film.title"
+            :original_title="film.original_title"
+            :original_language="film.original_language"
+            :vote_average="film.vote_average"/>
 
         </div>
     </div>
@@ -26,5 +30,9 @@ export default {
 
 
 <style lang="scss" scoped>
+
+    .personalized{
+        margin-top:50px;
+    }
 
 </style>

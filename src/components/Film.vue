@@ -1,7 +1,13 @@
 <template>
     <div class="col-4">
         <div class="box-image">
-            <div class="prova">ciao</div> 
+            <div class="prova">
+                <div class="titolo">{{title}}</div> 
+                <div class="original-title">{{original_title}}</div> 
+                <div class="original-language">{{original_language}}</div> 
+                <div class="vote-average">{{vote_average}}</div> 
+
+            </div>
         </div>
 
     </div>
