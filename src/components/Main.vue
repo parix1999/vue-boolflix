@@ -2,13 +2,14 @@
     <div class="container personalized">
         <div class="row">
             <h3>Film:</h3>
-            <Film v-for="(film, index) in menuList" :key="index" 
+            <Card v-for="(film, index) in menuList" :key="index" 
             :poster_path="film.poster_path"
             :name="film.name"
             :title="film.title"
             :original_title="film.original_title"
             :original_language="film.original_language"
             :vote_average="film.vote_average"/>
+          
             
         </div>
     </div>
@@ -16,13 +17,13 @@
 
 
 <script>
-import Film from './Film.vue';
+import Card from './Card.vue';
 
 
 export default {
     name:'Main',
     components:{
-        Film,
+        Card,
         
     },
     props:{

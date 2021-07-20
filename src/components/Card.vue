@@ -1,7 +1,6 @@
 <template>
     <div class="col-2">
-        <div class="box-image">
-    
+        <div class="box-image" :style="image">
             <div class="prova">
                 <div class="titolo">{{title}}</div> 
                 <div class="serie">{{name}}</div> 
@@ -44,7 +43,7 @@
 
 
 export default {
-    name:'Film',
+    name:'Card',
     props: {
        title: String,
        original_title: String, 
@@ -54,7 +53,16 @@ export default {
     //Dati serie TV:
         name: String,
 
-    }
+    },
+    computed: {
+        image() {
+            if (this.poster_path) {
+                return 'background-image: url(https://image.tmdb.org/t/p/w500/' + this.poster_path + ');';
+            } else {
+                return 'background:red';
+            }
+        }
+    },
 }
 
 </script>
@@ -63,8 +71,7 @@ export default {
 <style lang="scss" scoped>
 
     .box-image{
-        background-image: url('https://image.tmdb.org/t/p/w342/hQq8xZe5uLjFzSBt4LanNP7SQjl.jpg');
-        background-size:contain; 
+        background-size:cover; 
         background-position:top;
         background-repeat: no-repeat;
         width:180px;
