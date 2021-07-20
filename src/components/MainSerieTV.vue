@@ -29,7 +29,6 @@ export default {
     // Array passata da appvue a qui per poi farla utilizzare da card, tramite qui estraggo gli oggetti:
     props:{
         listaSerieTV: Array,
-        starVote: Array,
     }
 }
 

@@ -8,8 +8,9 @@
             :title="film.title"
             :original_title="film.original_title"
             :original_language="film.original_language"
-            :vote_average="film.vote_average"/>
-          
+            :vote_average="film.vote_average"
+            />
+
             
         </div>
     </div>
@@ -30,8 +31,6 @@ export default {
     // Array passata da appvue a qui per poi farla utilizzare da card, tramite qui estraggo gli oggetti: 
     props:{
         menuList: Array,
-        starVote: Array, 
-        
     }
     
 }

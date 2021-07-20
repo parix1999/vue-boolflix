@@ -32,7 +32,11 @@
                 </div>
 
                 
-                <div class="vote-average">{{vote}}</div> 
+                <div class="vote-average" >
+                    <i v-for="n in 5" :key="n" :class="vote(n)"></i>
+
+                </div>
+
             </div>
 
         </div>
@@ -56,7 +60,10 @@ export default {
     //Dati serie TV:
         name: String,
 
+        starVote: Array, 
+
     },
+   
     computed: {
         // Funzione collegata allo style sopra, quindi si possono passare proprietà del css
         image() {
@@ -68,11 +75,21 @@ export default {
                 return 'background-image: url(../assets/error.png)'; 
             }
         },
-        vote(){
-            return Math.ceil(this.vote_average) / 2;
+        
+        
+
+    },
+    methods: {
+        vote(numeroIterazione) {
+            let calc = Math.ceil(this.vote_average / 2);
+            if (numeroIterazione <= calc ){
+                return 'fas fa-star '
+            } else {
+                return 'far fa-star'
+            }
             
         }
-    },
+    }
 }
 
 </script>
