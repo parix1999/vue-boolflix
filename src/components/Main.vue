@@ -1,7 +1,7 @@
 <template>
     <div class="container personalized">
         <div class="row">
-            <h3>Film Popolari</h3>
+            <h3>Film:</h3>
             <Film v-for="(film, index) in menuList" :key="index" 
             :poster_path="film.poster_path"
             :name="film.name"

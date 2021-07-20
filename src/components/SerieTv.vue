@@ -1,5 +1,5 @@
 <template>
-    <div class="col-4">
+    <div class="col-2">
         
         <div class="box-image">
             <div class="name">
@@ -34,6 +34,9 @@ export default {
         background-repeat: no-repeat;
         width:180px;
         height:300px;
+    }
+    .name{
+        color:white; 
     }
 
 </style>

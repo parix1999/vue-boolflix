@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row">
-            <h3>Serie Tv popolari</h3>
+            <h3>Serie Tv:</h3>
             <!-- Serie tv: -->
             <SerieTv v-for="(serie, index) in listaSerieTV" :key="index" :name="serie.name"/>
 
@@ -28,5 +28,10 @@ export default {
 
 
 <style lang="scss" scoped>
+
+    h3{
+        color:white;
+        margin-bottom:24px; 
+    }
 
 </style>
