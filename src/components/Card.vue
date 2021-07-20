@@ -1,11 +1,14 @@
 <template>
-    <div class="col-2">
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <!-- Qua con il bind nello style, lo si collega ad una funzione sotto nei computed -->
         <div class="box-image" :style="image">
-            <div class="prova">
+            <div class="descrizione">
                 <div class="titolo">{{title}}</div> 
                 <div class="serie">{{name}}</div> 
                 <div class="original-title">{{original_title}}</div> 
                 <div class="original-language">{{original_language}}</div> 
+                
                 <!-- Bandiere lingue -->
                 <div class="box-bandiera" v-if="original_language === 'en' ">
                     <img src="../assets/en.png" alt="inglese">
@@ -29,7 +32,7 @@
                 </div>
 
                 
-                <div class="vote-average">{{vote_average}}</div> 
+                <div class="vote-average">{{vote}}</div> 
             </div>
 
         </div>
@@ -55,12 +58,19 @@ export default {
 
     },
     computed: {
+        // Funzione collegata allo style sopra, quindi si possono passare proprietà del css
         image() {
+            // Se poster_path non è null e ha un valore allora mi ritorni l'url dell'immagine che c'è nella array:
             if (this.poster_path) {
                 return 'background-image: url(https://image.tmdb.org/t/p/w500/' + this.poster_path + ');';
+            // Altrimenti mi restituisci un'altra copertina: 
             } else {
-                return 'background:red';
+                return 'background-image: url(../assets/error.png)'; 
             }
+        },
+        vote(){
+            return Math.ceil(this.vote_average) / 2;
+            
         }
     },
 }
@@ -74,14 +84,19 @@ export default {
         background-size:cover; 
         background-position:top;
         background-repeat: no-repeat;
-        width:180px;
+        width:100%;
         height:300px;
-        .prova{
+
+        .descrizione{
             display: none;
+            background-color:rgba(0, 0, 0, .7);
+            height:100%;
+
         }
-    &:hover .prova{
+    &:hover .descrizione{
         display:block; 
-        color:white; 
+        color:white;
+        cursor: pointer; 
     }
         
     }

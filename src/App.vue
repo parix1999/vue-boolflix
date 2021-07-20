@@ -3,7 +3,7 @@
     <!-- Parte Header, con il suo collegamento -->
     <Header @cerca = "searchMovie" />
     <!-- Parte main con all'interno il suo collegamento -->
-    <Main :menuList="listaCercati" />
+    <Main :menuList="listaCercati"  :starVote="starVote" />
      <!--Parte main serie tv con all'interno il suo collegamento  -->
     <MainSerieTv :listaSerieTV="cercatiSerieTv"/> 
 
@@ -56,9 +56,11 @@ export default {
       listaSerieTV:[],
       // Array con dentro le serie TV cercate:
       cercatiSerieTv:[],
+      // Array per le stelle:
+      starVote:[], 
     }
   },
-  
+
   methods: {
     searchMovie(searchString){
       // Chiamate per la ricerca: 
@@ -68,7 +70,7 @@ export default {
         this.cercatiSerieTv = this.listaSerieTV; 
         return 
 
-      // Altrimenti se si scrive qualcosa, quindi c'è più di un carattere:
+      // Altrimenti se si scrive qualcosa, quindi c'è più di un carattere mi fai una chiamata api del search:
       }else if (searchString.length > 0) {
         axios.get(`https://api.themoviedb.org/3/search/tv?api_key=6ab3e57615f14eaaf5a85958841a5555&query=${searchString}`).then((response) =>{
         this.cercatiSerieTv = response.data.results;

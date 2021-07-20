@@ -17,6 +17,7 @@
 
 
 <script>
+// Collegamento con il componente card con all'interno tutti i dati dell'array, passati da qui con il promps:
 import Card from './Card.vue';
 
 
@@ -26,9 +27,10 @@ export default {
         Card,
         
     },
+    // Array passata da appvue a qui per poi farla utilizzare da card, tramite qui estraggo gli oggetti: 
     props:{
         menuList: Array,
-        
+        starVote: Array, 
         
     }
     
