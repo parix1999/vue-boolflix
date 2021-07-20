@@ -16,7 +16,7 @@
 
 
                 <div class="box-bandiera">
-                    <img :src=" '../assets/' + original_language + '.png' " :alt="original_language">
+                    <img :src="bandiera(original_language)" :alt="original_language">
                 </div>
                 
 
@@ -62,7 +62,7 @@ export default {
         image() {
             // Se poster_path non è null e ha un valore allora mi ritorni l'url dell'immagine che c'è nella array:
             if (this.poster_path) {
-                return 'background-image: url(https://image.tmdb.org/t/p/w500/' + this.poster_path + ');';
+                return 'background-image: url(https://image.tmdb.org/t/p/w500/' + this.poster_path + ')';
             // Altrimenti mi restituisci un'altra copertina: 
             } else {
                 // TODO SFONDO DA SISTEMARE PER QUELLI SENZA COPERTINA  
@@ -83,6 +83,13 @@ export default {
             }
             
         },
+        bandiera (prova) {
+            if(this.original_language === prova) {
+                return require('../assets/' + this.original_language + '.png');
+            }else {
+                return require('../assets/error.png');
+            }
+        },
         
     }
 }
@@ -91,19 +98,16 @@ export default {
 
 
 <style lang="scss" scoped>
-
     .box-image{
         background-size:cover; 
         background-position:top;
         background-repeat: no-repeat;
         width:100%;
         height:300px;
-
         .descrizione{
             display: none;
             background-color:rgba(0, 0, 0, .7);
             height:100%;
-
         }
     &:hover .descrizione{
         display:block; 
@@ -113,7 +117,6 @@ export default {
     }
     .box-bandiera {
         width:20px;
-
         img{
             width:100%;
         }
@@ -124,6 +127,4 @@ export default {
     .spazio-sotto{
         margin-bottom:24px;
     } 
-
-
 </style>
