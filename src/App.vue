@@ -33,7 +33,7 @@ export default {
     });
 
     // Chiamata per le serie TV: 
-    axios.get(`https://api.themoviedb.org/3/search/tv?api_key=6ab3e57615f14eaaf5a85958841a5555&query=scrubs`).then((response) =>{
+    axios.get('https://api.themoviedb.org/3/tv/popular?api_key=6ab3e57615f14eaaf5a85958841a5555').then((response) =>{
         this.listaSerieTV = response.data.results;
         console.log(this.listaSerieTV)
     });
