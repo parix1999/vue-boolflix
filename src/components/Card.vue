@@ -1,35 +1,24 @@
 <template>
 
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2  spazio-sotto">
         <!-- Qua con il bind nello style, lo si collega ad una funzione sotto nei computed -->
         <div class="box-image" :style="image">
             <div class="descrizione">
                 <div class="titolo">{{title}}</div> 
                 <div class="serie">{{name}}</div> 
                 <div class="original-title">{{original_title}}</div> 
-                <div class="original-language">{{original_language}}</div> 
+                <!-- <div class="original-language">{{original_language}}</div>  -->
                 
                 <!-- Bandiere lingue -->
-                <div class="box-bandiera" v-if="original_language === 'en' ">
-                    <img src="../assets/en.png" alt="inglese">
-                </div>
-                <div class="box-bandiera" v-else-if="original_language === 'it' ">
-                    <img src="../assets/it.png" alt="italiano">
-                </div>
-                <div class="box-bandiera" v-else-if="original_language === 'es' ">
-                    <img src="../assets/es.png" alt="spagnolo">
-                </div>
-                <div class="box-bandiera" v-else-if="original_language === 'fr' ">
-                    <img src="../assets/fr.png" alt="francese">
-                </div>
-                <div class="box-bandiera" v-else-if="original_language === 'pt' ">
-                    <img src="../assets/pr.png" alt="portoghese">
+                <!-- <div class="lingua">
+                    <flag iso="us" />
+                </div> -->
+
+
+                <div class="box-bandiera">
+                    <img :src=" '../assets/' + original_language + '.png' " :alt="original_language">
                 </div>
                 
-
-                <div v-else>
-                    <div class="warning">Nessuna bandiera per questa lingua, scusate</div>
-                </div>
 
                 
                 <div class="vote-average" >
@@ -51,6 +40,9 @@
 
 export default {
     name:'Card',
+    components: {
+
+    },
     props: {
        title: String,
        original_title: String, 
@@ -65,6 +57,7 @@ export default {
     },
    
     computed: {
+
         // Funzione collegata allo style sopra, quindi si possono passare proprietà del css
         image() {
             // Se poster_path non è null e ha un valore allora mi ritorni l'url dell'immagine che c'è nella array:
@@ -72,7 +65,8 @@ export default {
                 return 'background-image: url(https://image.tmdb.org/t/p/w500/' + this.poster_path + ');';
             // Altrimenti mi restituisci un'altra copertina: 
             } else {
-                return 'background-image: url(../assets/error.png)'; 
+                // TODO SFONDO DA SISTEMARE PER QUELLI SENZA COPERTINA  
+                return 'background:red'; 
             }
         },
         
@@ -88,7 +82,8 @@ export default {
                 return 'far fa-star'
             }
             
-        }
+        },
+        
     }
 }
 
@@ -114,8 +109,7 @@ export default {
         display:block; 
         color:white;
         cursor: pointer; 
-    }
-        
+    } 
     }
     .box-bandiera {
         width:20px;
@@ -127,6 +121,9 @@ export default {
     .warning{
         font-size: 10px;
     }
+    .spazio-sotto{
+        margin-bottom:24px;
+    } 
 
 
 </style>
