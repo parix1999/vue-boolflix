@@ -3,7 +3,7 @@
     <!-- Parte Header, con il suo collegamento -->
     <Header @cerca = "searchMovie" />
     <!-- Parte main con all'interno il suo collegamento -->
-    <Main :menuList="listaCercati"  :starVote="starVote" />
+    <Main :menuList="listaCercati" />
      <!--Parte main serie tv con all'interno il suo collegamento  -->
     <MainSerieTv :listaSerieTV="cercatiSerieTv"/> 
 
@@ -56,8 +56,7 @@ export default {
       listaSerieTV:[],
       // Array con dentro le serie TV cercate:
       cercatiSerieTv:[],
-      // Array per le stelle:
-      starVote:[], 
+      
     }
   },
 

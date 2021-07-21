@@ -52,7 +52,7 @@ export default {
     //Dati serie TV:
         name: String,
 
-        starVote: Array, 
+        
 
     },
    
@@ -66,7 +66,7 @@ export default {
             // Altrimenti mi restituisci un'altra copertina: 
             } else {
                 // TODO SFONDO DA SISTEMARE PER QUELLI SENZA COPERTINA  
-                return 'background:red'; 
+                return 'background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png)'; 
             }
         },
         
@@ -84,7 +84,7 @@ export default {
             
         },
         bandiera (prova) {
-            if(this.original_language === prova) {
+            if(this.original_language == prova) {
                 return require('../assets/' + this.original_language + '.png');
             }else {
                 return require('../assets/error.png');
