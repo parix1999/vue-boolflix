@@ -55,6 +55,12 @@ export default {
         
 
     },
+    data:function(){
+        return {
+            // Array dei prefissi delle lingue che vengono passati alla funzione per il confronto:
+            languagesAvailable: [ 'cs', 'de', 'en', 'es', 'fr', 'hi', 'it','ja','nl','pt','ru'],
+        }
+    },
    
     computed: {
 
@@ -84,11 +90,11 @@ export default {
             
         },
 
-        bandiera (lingua) {
+        bandiera (lingua ) {
+            
             // Se il prefisso della lingua è diverso da quello sulla array allora mi dai l'immagine error:
-            if(lingua != this.original_language ) {
-                return require('../assets/error.png');
-                
+            if(!this.languagesAvailable.includes(lingua)) {
+                return require('../assets/error.png'); 
             // Altrimenti mi dai l'immagine della bandidera del prefisso:
             } else {
                 return require('../assets/' + this.original_language + '.png');
