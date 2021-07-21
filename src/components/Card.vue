@@ -16,11 +16,11 @@
 
 
                 <div class="box-bandiera">
+                    <!-- Qua li passo il parametro del prefisso della lingua nell'array -->
                     <img :src="bandiera(original_language)" :alt="original_language">
                 </div>
                 
-
-                
+                <!-- Voto  -->
                 <div class="vote-average" >
                     <i v-for="n in 5" :key="n" :class="vote(n)"></i>
 
@@ -83,12 +83,17 @@ export default {
             }
             
         },
-        bandiera (prova) {
-            if(this.original_language == prova) {
-                return require('../assets/' + this.original_language + '.png');
-            }else {
+
+        bandiera (lingua) {
+            // Se il prefisso della lingua è diverso da quello sulla array allora mi dai l'immagine error:
+            if(lingua != this.original_language ) {
                 return require('../assets/error.png');
+                
+            // Altrimenti mi dai l'immagine della bandidera del prefisso:
+            } else {
+                return require('../assets/' + this.original_language + '.png');
             }
+
         },
         
     }
