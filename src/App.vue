@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- Parte Header, con il suo collegamento -->
-    <Header @cerca = "searchMovie"  />
+    <Header @cerca = "searchMovie" @visualizza = "prova" />
     <!-- Parte main con all'interno il suo collegamento -->
     <MainMovie :menuList="listaCercati" />
      <!--Parte main serie tv con all'interno il suo collegamento  -->
@@ -81,7 +81,16 @@ export default {
         console.log(this.listaCercati)
         });
       }
+    },
+
+    prova(prova) {
+      return alert(prova)
     }
+
+
+
+
+
   }
 }
 </script>

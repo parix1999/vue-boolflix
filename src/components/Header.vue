@@ -18,13 +18,14 @@
         <div>
             <ul>
                 <li>
-                    <input :class="noVisualizza()" v-model="searchString" placeholder="Search" 
+                    <input  v-model="searchString" placeholder="Search" 
                     @keyup.enter="$emit('cerca', searchString)">
 
                 </li>
                 <!-- Icona ricerca: -->
-                <li>
-                    <i @click="visualizza()" class="fas fa-search puntatore"></i>
+                <li  @click="$emit('visualizza', prova)">
+                    
+                    <i class="fas fa-search puntatore"></i>
 
                 </li>
                 <!-- Scritta -->
@@ -54,28 +55,14 @@ export default {
   data:function(){
       return{
         searchString: '',
-        flag : false,
+        flag : true,
+        prova:'ciao',
           
       }
   },
+
   methods: {
-    //   Per visualizzare o meno la barra ricerca
-    
-    noVisualizza() {
-        // Se il flag è falso allora passa la classe display none:
-        if (this.flag == false) {
-            return 'noVisual';
-        // Altrimenti display bloack, che sarà cambiato con la funzione click, quindi potrebbe essere inutile questo else; da vedere:
-        } else {
-            return 'visual';
-
-        }
-    },
-    visualizza() {
-        this.flag = true;  
-     
-
-    },
+   
     
 
 
