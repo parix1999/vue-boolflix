@@ -18,11 +18,18 @@
         <div>
             <ul>
                 <li>
-                    <input v-model="searchString" placeholder="Search" 
+                    <input :class="noVisualizza()" v-model="searchString" placeholder="Search" 
                     @keyup.enter="$emit('cerca', searchString)">
+
                 </li>
-                <li><i class="fas fa-search"></i></li>
+                <!-- Icona ricerca: -->
+                <li>
+                    <i @click="visualizza()" class="fas fa-search puntatore"></i>
+
+                </li>
+                <!-- Scritta -->
                 <li>BAMBINI</li>
+                <!-- Icona campana -->
                 <li><i class="fas fa-bell"></i></li>
                 <li>
                     <div class="box-account">
@@ -46,13 +53,55 @@ export default {
   name: 'Header',
   data:function(){
       return{
-          searchString: '',
+        searchString: '',
+        flag : false,
+          
       }
-  }
+  },
+  methods: {
+    //   Per visualizzare o meno la barra ricerca
+    
+    noVisualizza() {
+        // Se il flag è falso allora passa la classe display none:
+        if (this.flag == false) {
+            return 'noVisual';
+        // Altrimenti display bloack, che sarà cambiato con la funzione click, quindi potrebbe essere inutile questo else; da vedere:
+        } else {
+            return 'visual';
+
+        }
+    },
+    visualizza() {
+        this.flag = true;  
+     
+
+    },
+    
+
+
+
+  },
 }
 </script>
 
 <style lang="scss">
+
+//barra ricerca: 
+
+    .noVisual {
+        display: none;
+    }
+    .visual{
+        display: block;
+    }
+    // Classe per il puntatore on click:
+    .puntatore {
+        cursor: pointer;
+    }
+
+
+//--------------------
+
     nav {
         background-color:black; 
         padding: 5px 0 10px 10px;

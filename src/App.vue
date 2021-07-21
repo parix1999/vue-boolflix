@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <!-- Parte Header, con il suo collegamento -->
-    <Header @cerca = "searchMovie" />
+    <Header @cerca = "searchMovie"  />
     <!-- Parte main con all'interno il suo collegamento -->
-    <Main :menuList="listaCercati" />
+    <MainMovie :menuList="listaCercati" />
      <!--Parte main serie tv con all'interno il suo collegamento  -->
     <MainSerieTv :listaSerieTV="cercatiSerieTv"/> 
 
@@ -16,7 +16,7 @@ import axios from 'axios';
 
 // collegamento componenti
 import Header from '@/components/Header.vue';
-import Main from '@/components/Main.vue';
+import MainMovie from '@/components/MainMovie.vue';
 import MainSerieTv from '@/components/MainSerieTV.vue';
 
 
@@ -24,7 +24,7 @@ export default {
   name: 'App',
   components: {
     Header,
-    Main,
+    MainMovie,
     MainSerieTv,
     
   },
