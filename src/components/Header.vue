@@ -18,13 +18,13 @@
         <div>
             <ul>
                 <li>
-                    <input  v-model="searchString" placeholder="Search" 
+                    <input :class="noVisualiza()" v-model="searchString" placeholder="Search" 
                     @keyup.enter="$emit('cerca', searchString)">
 
                 </li>
                 <!-- Icona ricerca: -->
-                <li  @click="$emit('visualizza', prova)">
-                    
+                <li  @click="$emit('visualizza')">
+
                     <i class="fas fa-search puntatore"></i>
 
                 </li>
@@ -52,18 +52,28 @@
 
 export default {
   name: 'Header',
+  props:{
+        flag: Boolean,
+    },
+
+
   data:function(){
       return{
         searchString: '',
-        flag : true,
-        prova:'ciao',
           
-      }
+    }
   },
 
   methods: {
-   
     
+    noVisualiza() {
+        if (this.flag == true){
+            return 'noVisual';
+        } else {
+            return 'visual';
+        }
+
+    }
 
 
 

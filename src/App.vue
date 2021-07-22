@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- Parte Header, con il suo collegamento -->
-    <Header @cerca = "searchMovie" @visualizza = "prova" />
+    <Header :flag = "flag" @cerca = "searchMovie" @visualizza = "clickPassaggio" />
     <!-- Parte main con all'interno il suo collegamento -->
     <MainMovie :menuList="listaCercati" />
      <!--Parte main serie tv con all'interno il suo collegamento  -->
@@ -57,6 +57,8 @@ export default {
       // Array con dentro le serie TV cercate:
       cercatiSerieTv:[],
       
+      flag:true,
+      
     }
   },
 
@@ -83,8 +85,10 @@ export default {
       }
     },
 
-    prova(prova) {
-      return alert(prova)
+    clickPassaggio() {
+      if (this.flag == true) {
+        this.flag = false; 
+      }
     }
 
 
